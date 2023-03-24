@@ -25,7 +25,8 @@ form input:focus {
 }
 
 form button {
-  width: 12%;
+  width: 60px;
+  height: 44px;
   margin-left: -4px;
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;

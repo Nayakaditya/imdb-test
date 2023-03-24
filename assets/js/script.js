@@ -35,14 +35,14 @@
     })();
   });
 
-  searchBtn.addEventListener("click", (e) => {
-    e.preventDefault();
+  // searchBtn.addEventListener("click", (e) => {
+  //   e.preventDefault();
 
-    (async () => {
-      const data = await fetchMovies(searchInput.value);
-      addSuggestedMovieToDOM(data);
-    })();
-  });
+  //   (async () => {
+  //     const data = await fetchMovies(searchInput.value);
+  //     addSuggestedMovieToDOM(data);
+  //   })();
+  // });
 
   // THIS FUNCTION WILL SHOW MOVIE TO THE suggestionContainer
   function addSuggestedMovieToDOM(data) {
@@ -190,7 +190,7 @@
       deleteMovieFromLocal(target.dataset.id);
     }
 
-    localStorage.setItem("movieName", target.dataset.id);
+    localStorage.setItem("currentMovie", `${target.dataset.id}`);
   });
 
   function refereshPage() {
