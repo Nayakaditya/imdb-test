@@ -1,3 +1,4 @@
+"use strict";
 // OMDB API : bdf3a323
 
 // http://www.omdbapi.com/?i=tt3896198&apikey=bdf3a323

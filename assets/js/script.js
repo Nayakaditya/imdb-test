@@ -1,7 +1,7 @@
 "use strict";
 // http://www.omdbapi.com/?i=tt3896198&apikey=bdf3a323
 
-(() => {
+(function () {
   const searchInput = document.getElementById("search");
   const searchBtn = document.getElementById("search-btn");
   const suggestedMovieContainer = document.getElementById(
@@ -13,6 +13,20 @@
   addFavMovieToDOM();
   var suggestedMovieList = [];
   var favMovieList = [];
+
+  searchInput.addEventListener("keyup", () => {
+    let search = searchInput.value;
+    if (search === " ") {
+      suggestedMovieContainer.innerHTML = "";
+      suggestedMovieList = [];
+    } else {
+      (async () => {
+        const data = await fetchMovies(searchInput.value);
+        addSuggestedMovieToDOM(data);
+        // console.log(data);
+      })();
+    }
+  });
 
   // FUNCTION FOR FETCHING MOVIES FROM PROVIDED API USING FETCH API
   async function fetchMovies(movie) {
@@ -27,23 +41,6 @@
     }
   }
 
-  searchInput.addEventListener("keyup", () => {
-    (async () => {
-      const data = await fetchMovies(searchInput.value);
-      addSuggestedMovieToDOM(data);
-      // console.log(data);
-    })();
-  });
-
-  // searchBtn.addEventListener("click", (e) => {
-  //   e.preventDefault();
-
-  //   (async () => {
-  //     const data = await fetchMovies(searchInput.value);
-  //     addSuggestedMovieToDOM(data);
-  //   })();
-  // });
-
   // THIS FUNCTION WILL SHOW MOVIE TO THE suggestionContainer
   function addSuggestedMovieToDOM(data) {
     // ITERATE OVER THE suggestionMovieList ARRAY and TO PUSH DATA
@@ -55,7 +52,7 @@
       }
     });
 
-    if (!isInArray && data.Title != undefined) {
+    if (!isInArray) {
       console.log(data);
       suggestedMovieList.push(data);
 
