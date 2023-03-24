@@ -21,7 +21,7 @@
       suggestedMovieList = [];
     } else {
       (async () => {
-        let data = await fetchMovies(searchInput.value);
+        let data = await fetchMovies(search);
         addSuggestedMovieToDOM(data);
         // console.log(data);
       })();
