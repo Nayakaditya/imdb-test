@@ -1,9 +1,7 @@
 "use strict";
-// http://www.omdbapi.com/?i=tt3896198&apikey=bdf3a323
 
 (function () {
   const searchInput = document.getElementById("search");
-  const searchBtn = document.getElementById("search-btn");
   const suggestedMovieContainer = document.getElementById(
     "suggested-movie-container"
   );
@@ -37,7 +35,7 @@
       const data = await response.json();
       return data;
     } catch (error) {
-      console.log("Error in fetching movies");
+      console.log("Error in fetching movies ", error);
     }
   }
 
