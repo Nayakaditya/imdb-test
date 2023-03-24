@@ -21,7 +21,7 @@
       suggestedMovieList = [];
     } else {
       (async () => {
-        const data = await fetchMovies(searchInput.value);
+        let data = await fetchMovies(searchInput.value);
         addSuggestedMovieToDOM(data);
         // console.log(data);
       })();
@@ -53,7 +53,7 @@
     });
 
     if (!isInArray) {
-      console.log(data);
+      // console.log(data);
       suggestedMovieList.push(data);
 
       const movieCard = document.createElement("div");
