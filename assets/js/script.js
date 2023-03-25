@@ -41,6 +41,10 @@
 
   // THIS FUNCTION WILL SHOW MOVIE TO THE suggestionContainer
   function addSuggestedMovieToDOM(data) {
+    if (!data || !data.Title) {
+    // return early if data is undefined or does not have a Title property
+    return;
+  }
     // ITERATE OVER THE suggestionMovieList ARRAY and TO PUSH DATA
     var isInArray = false;
 
